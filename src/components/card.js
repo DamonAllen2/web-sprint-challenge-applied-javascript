@@ -82,5 +82,5 @@ const cardAppender = (selector) => {
   })
   .catch(err => console.log(err));
 }
-console.log(axios.get('http://localhost:5001/api/articles'))
+
 export { Card, cardAppender }
