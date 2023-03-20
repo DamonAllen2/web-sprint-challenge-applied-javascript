@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 const Card = (article) => {
   // TASK 5
   // ---------------------
@@ -17,6 +19,33 @@ const Card = (article) => {
   //   </div>
   // </div>
   //
+  const divCard = document.createElement('div');
+  divCard.classList.add('card');
+
+  const divHeadline = document.createElement('div');
+  divHeadline.classList.add('headline');
+  divHeadline.textContent = article.headline;
+
+  const divAuthor = document.createElement('div');
+  divAuthor.classList.add('author');
+  
+  const divImgContainer = document.createElement('div');
+  divImgContainer.classList.add('img-container');
+
+  const authorImg = document.createElement('img');
+  authorImg.src = article.authorPhoto;
+
+  const authorName = document.createElement('span');
+  authorName.textContent = `By ${article.authorName}`;
+
+  divCard.appendChild(divHeadline);
+  divCard.appendChild(divAuthor);
+  divAuthor.appendChild(divImgContainer);
+  divImgContainer.appendChild(authorImg);
+  divAuthor.appendChild(authorName);
+
+  return divCard;
+  console.log(divCard);
 }
 
 const cardAppender = (selector) => {
@@ -29,5 +58,5 @@ const cardAppender = (selector) => {
   // Append each card to the element in the DOM that matches the selector passed to the function.
   //
 }
-
+console.log(axios.get('http://localhost:5001/api/articles'))
 export { Card, cardAppender }
